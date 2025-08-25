@@ -4,7 +4,7 @@
 struct abonent {
     char name[10];
     char second_name[10];
-    char tel[10];
+    char tel[13];
 };
 
 int main(void) {
@@ -29,12 +29,16 @@ int main(void) {
                 if(count_abonent < 100) {
                     printf("Введите имя: ");
                     scanf("%9s", abonents[count_abonent].name);
+                    char c;
+                    while((c = getchar()) != '\n' && c != EOF) {}
 
                     printf("Введите фамилию: ");
                     scanf("%9s", abonents[count_abonent].second_name);
+                    while((c = getchar()) != '\n' && c != EOF) {}
 
                     printf("Введите номер телефона: ");
-                    scanf("%9s", abonents[count_abonent].tel);
+                    scanf("%12s", abonents[count_abonent].tel);
+                    while((c = getchar()) != '\n' && c != EOF) {}
 
                     printf("Абонент добавлен\n\n");
                     count_abonent++;
