@@ -26,7 +26,7 @@ int main(void) {
 
         switch(input_number) {
             case 1:
-                if(count_abonent < 99) {
+                if(count_abonent < 100) {
                     printf("Введите имя: ");
                     scanf("%9s", abonents[count_abonent].name);
 
@@ -51,7 +51,7 @@ int main(void) {
                 int del_index;
                 scanf("%d", &del_index);
 
-                if(del_index < 0 || del_index > count_abonent) {
+                if(del_index < 1 || del_index > count_abonent) {
                     printf("Такого абонента не существует\n");
                     break;
                 }
@@ -75,14 +75,17 @@ int main(void) {
 
                 printf("Введите имя: ");
                 char input_str[10];
-                scanf("%s", &input_str[0]);
+                scanf("%9s", input_str);
+                int found = 0;
 
-                for(int i = 0; i < count_abonent - 1; i++) {
+                for(int i = 0; i < count_abonent; i++) {
                     if(strcmp(abonents[i].name, input_str) == 0) {
                         printf("%d: %s %s %s\n", i + 1, abonents[i].name, abonents[i].second_name, abonents[i].tel);
+                        found = 1;
                     }
                 }
 
+                if(!found) printf("Абонентов с именем %s не найдено", input_str);
                 printf("\n\n");
                 break;
 
@@ -100,7 +103,9 @@ int main(void) {
 
             case 5:
                 return 0;
-            break;
+            
+            default:
+                printf("Попробуйте ещё раз\n\n");
         }
     }
 
